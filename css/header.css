@@ -8,15 +8,35 @@
     font-family: "overdozesans", sans-serif;
 }
 
+@font-face {
+  font-family: "Droid Sans";
+  src: local("Droid Sans"), 
+       url("../fonts/Droid-Sans/DroidSans.ttf") format("ttf");
+}
+
+.Droid-Sans {
+    font-family: "Droid Sans", sans-serif;
+}
+.sg-uyt {
+    font-size: 1.5rem;
+}
+
 header {
     background-image: url('../img/forest.jpg');
-    height: 40rem;
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .es-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9rem;
+}
+
+.sg-header-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,5 +61,9 @@ header {
 }
 }
 .p {
-  font-size: 130px;
+  font-size: 9rem;
+}
+
+.uyt {
+    font-size: 2rem;
 }
