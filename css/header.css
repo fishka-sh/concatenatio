@@ -8,17 +8,23 @@
     font-family: "overdozesans", sans-serif;
 }
 
+
 @font-face {
-  font-family: "Droid Sans";
-  src: local("Droid Sans"), 
-       url("../fonts/Droid-Sans/DroidSans.ttf") format("ttf");
+  font-family: 'EternalLent';
+  src: local('EternalLent'),
+	   url("../fonts/EternalLent/EternalLent.ttf") format('ttf'),
+
 }
 
-.Droid-Sans {
-    font-family: "Droid Sans", sans-serif;
+.EternalLent {
+    font-family: "EternalLent", sans-serif;
 }
 .sg-uyt {
     font-size: 1.5rem;
+}
+
+.sg-header {
+    margin-top: 0rem;
 }
 
 header {
@@ -33,7 +39,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 9rem;
 }
 
 .sg-header-title {
@@ -66,4 +71,8 @@ header {
 
 .uyt {
     font-size: 2rem;
+}
+
+.sg-pupupu {
+    margin-top: 10rem;
 }
