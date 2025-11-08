@@ -6,6 +6,7 @@
 
 .overdozesans {
     font-family: "overdozesans", sans-serif;
+
 }
 
 
@@ -24,7 +25,7 @@
 }
 
 .sg-header {
-    margin-top: 0rem;
+    margin-top: 0rem; 
 }
 
 header {
@@ -35,13 +36,16 @@ header {
     background-position: center;
 }
 
-.es-header-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.interesting {
+    background-image: url('../img/popopo.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.sg-header-title {
+
+.es-header-title, .sg-header-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,16 +67,17 @@ header {
 @media screen and (max-width: 600px) {
     header {
         height:60rem;
+    }
 }
-}
+
 .p {
   font-size: 9rem;
 }
-
-.uyt {
-    font-size: 2rem;
+.font-onas{
+    font-size: 4rem;
 }
 
-.sg-pupupu {
-    margin-top: 10rem;
+
+.sg-padding {
+    padding-top: 9rem;
 }
