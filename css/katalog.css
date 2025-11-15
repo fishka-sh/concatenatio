@@ -1,0 +1,15 @@
+.sg-catalog {
+    background-image: url('../img/black.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sg-row {
+    padding-top: 1rem;
+}
+
+.sg-catalog-text {
+    color: white;
+}
