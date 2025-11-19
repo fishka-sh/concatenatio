@@ -24,10 +24,6 @@
     font-size: 1.5rem;
 }
 
-.sg-header {
-    margin-top: 0rem; 
-}
-
 header {
     background-image: url('../img/forest.jpg');
     height: 100vh;
@@ -74,10 +70,20 @@ header {
   font-size: 9rem;
 }
 .font-onas{
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
+.font-onas-p{
+    font-size: 2rem;
+}
 
 .sg-padding {
-    padding-top: 9rem;
+    padding-top: 16rem;
+}
+.sg-magazin {
+    padding-top: 9.5rem;
+}
+
+.sg-mifo {
+    padding-top: 16rem;
 }

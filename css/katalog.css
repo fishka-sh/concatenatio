@@ -7,9 +7,40 @@
 }
 
 .sg-row {
-    padding-top: 1rem;
+    padding-top: 4.5rem;
 }
 
 .sg-catalog-text {
     color: white;
+}
+.card {
+    max-width: 300px;
+    margin: auto;
+    font-family: arial;
+}
+
+.ne-price {
+    text-align: center;
+
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(221, 194, 194);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
 }
