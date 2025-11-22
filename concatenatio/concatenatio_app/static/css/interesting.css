@@ -1,0 +1,11 @@
+interesting {
+    background-image: url('../img/popopo.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sg-about {
+    margin-top: 20rem;
+}
