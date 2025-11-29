@@ -6,7 +6,6 @@
 
 .overdozesans {
     font-family: "overdozesans", sans-serif;
-
 }
 
 
@@ -59,16 +58,10 @@ header {
     background: rgba(0, 0, 0, 0.50);
 }
 
-/* Мобильная версия */
-@media screen and (max-width: 600px) {
-    header {
-        height:60rem;
-    }
-}
-
 .p {
   font-size: 9rem;
 }
+
 .font-onas{
     font-size: 5rem;
 }
@@ -86,4 +79,22 @@ header {
 
 .sg-mifo {
     padding-top: 16rem;
+}
+
+/* Мобильная версия */
+@media screen and (max-width: 600px) {
+    header {
+        height: 58rem;
+        width: 100%;
+    }
+
+    .p {
+        font-size: 4rem;
+    }
+    .sg-padding {
+        padding-top: 20rem;
+    }
+    .sg-magazin {
+        padding-top: 7rem;
+    }
 }

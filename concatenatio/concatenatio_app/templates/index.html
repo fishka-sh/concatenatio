@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/interesting.css">
-    <link rel="stylesheet" href="css/katalog.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href={% static 'css/header.css' %}>
+    <link rel="stylesheet" href={% static 'css/interesting.css' %}>
+    <link rel="stylesheet" href={% static 'css/katalog.css' %}>
+    <link rel="stylesheet" href={% static 'css/main.css' %}>
+    <link rel="stylesheet" href={% static 'css/footer.css' %}>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
     <header>
         <div class="container sg-catalog-text overlay sg-header"> 
+
             <h1 class="es-header-title overdozesans sg-padding p">Конкатенация</h1> 
             <!-- картинки на фоне мои, примерно так и будет  -->
             <p class="sg-header-title EternalLent uyt sg-uyt">покой лес уют</p>
             <p class="sg-header-title EternalLent uyt sg-uyt sg-magazin">магазин чего-то</p> 
+
             <!-- ещё не решила, что написать -->
         </div>
     </header>
@@ -34,36 +37,36 @@
         </div>
     <div class="container sg-catalog-text overdozesans"> 
         <div class="text-center font-onas-p sg-mifo">
-            <p>Русская мифология — это не просто сборник древних суеверий, а живая, дышащая вселенная, сотканная из тайн дремучих лесов, шепота рек и самого воздуха родного дома. Это мир осязаемой сказки, где магия становится бытом, а быт — магией.</p>
+            <p class="sg-catalog-about">Русская мифология — это не просто сборник древних суеверий, а живая, дышащая вселенная, сотканная из тайн дремучих лесов, шепота рек и самого воздуха родного дома. Это мир осязаемой сказки, где магия становится бытом, а быт — магией.</p>
         </div>
     </div>
     </div>
     <div class="sg-catalog">
         <div class="container">
             <div class="row sg-row">
-                <div class="card col-3">
-                    <img src="/img/prob.webr" style="width:100%">
+                <div class="card col-3 sg-card">
+                    <img class="sg-img-padding" src={% static 'C:\Users\sofya\Desktop\concatenatio\concatenatio\concatenatio_app\static\img\prob.webp' %} style="width:100%">
                     <h1 class="overdozesans ne-price">Брелок</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
                     <p class="overdozesans ne-price"><button>Добавить в корзину</button></p>
                 </div>
-                <div class="card col-3">
-                    <img src="/img/prob.webr" style="width:100%">
+                <div class="card col-3 sg-card">
+                    <img class="sg-img-padding sg-card-left" src={% static 'C:\Users\sofya\Desktop\concatenatio\concatenatio\concatenatio_app\static\img\prob.webp' %} style="width:100%">
                     <h1 class="overdozesans ne-price">Значок</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
                     <p class="overdozesans ne-price"><button>Добавить в корзину</button></p>
                 </div>
-                <div class="card col-3">
-                    <img src="/img/prob.webr" style="width:100%">
+                <div class="card col-3 sg-card">
+                    <img class="sg-img-padding" src={% static 'C:\Users\sofya\Desktop\concatenatio\concatenatio\concatenatio_app\static\img\prob.webp' %} style="width:100%">
                     <h1 class="overdozesans ne-price">Обложка</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
                     <p class="overdozesans ne-price"><button>Добавить в корзину</button></p>
                 </div>
                 <div class="card col-3">
-                    <img src="/img/prob.webr" style="width:100%">
+                    <img class="sg-img-padding" src={% static 'C:\Users\sofya\Desktop\concatenatio\concatenatio\concatenatio_app\static\img\prob.webp' %} style="width:100%">
                     <h1 class="overdozesans ne-price">Стикеры</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
@@ -75,14 +78,14 @@
                 <!-- скорее всего тут будет не весь каталог, а разделы каталога, например: "брелоки" и при заходе уже будет страница с ассортиментом только брелоков -->
                 <div class="card col-3">
                     <!-- мне не совсем нравится эта карточка, буду подстраивать под себя -->
-                    <img src="/img/prob.webr" style="width:100%"> 
+                    <img src={% static '/img/prob.webr' %} style="width:100%"> 
                     <h1 class="overdozesans ne-price">Брелок</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
                     <p class="overdozesans ne-price"><button>Добавить в корзину</button></p>
                 </div>
                 <div class="card col-3">
-                    <img src="C:\Users\sofya\Desktop\concatenatio\img\popopo.jpg" style="width:100%">  
+                    <img src={% static '/img/prob.webr' %} style="width:100%">  
                     <!-- картинки временные, не вездеих указала, буду править -->
                     <h1 class="overdozesans ne-price">Значок</h1>
                     <p class="price overdozesans">5 р.</p>
@@ -90,14 +93,14 @@
                     <p class="overdozesans ne-price"><button>Добавить в корзину</button></p>
                 </div>
                 <div class="card col-3">
-                    <img src="C:\Users\sofya\Desktop\concatenatio\img\prob.webp" style="width:100%">
+                    <img src={% static '/img/prob.webr' %} style="width:100%">
                     <h1 class="overdozesans ne-price">Обложка</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
                     <p class="overdozesans ne-price"><button>Добавить в корзину</button></p>
                 </div>
                 <div class="card col-3">
-                    <img src="img/gray.jpg" style="width:100%">
+                    <img src={% static '/img/prob.webr' %} style="width:100%">
                     <h1 class="overdozesans ne-price">Стикеры</h1>
                     <p class="price overdozesans">5 р.</p>
                     <p class="overdozesans ne-price">Что-то про товар</p>  
@@ -124,7 +127,7 @@
                     <h3>Что-то не менее важное</h3> 
                 </div>
                 <div class="col-4 gss">
-                    <p>Гражданкина Софья Сергеевна 2025 год</p>
+                    <p class="d-flex">Гражданкина Софья Сергеевна 2025 год</p>
                 </div>
             </div>
         </div>
