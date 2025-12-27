@@ -1,0 +1,60 @@
+.sg-catalog {
+    background-image: url('../img/black.jpg');
+    /* height: 100vh; */
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    padding-bottom: 2rem;
+}
+
+.sg-card {
+    /* padding-left: 3rem; */
+}
+
+/* .sg-catalog-about {
+    width: 100%
+} */
+
+.sg-img-padding {
+    padding-top: 1rem;
+}
+
+.sg-row {
+    padding-top: 4.5rem;
+}
+
+.sg-catalog-text {
+    color: white;
+}
+.card {
+    /* max-width: 5%; */
+    margin: auto;
+    font-family: arial;
+}
+
+.ne-price {
+    text-align: center;
+
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(221, 194, 194);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
