@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.contrib.auth import login, logout
 
 def index(request):
-    return render(request, 'index.html')
+    try:
+        context = { 'username' : request.user.username }
+        return render(request, 'index.html', context)
+    except AttributeError as e:
+        return render(request, 'index.html')
 
 def enter(request):
     # Если придет POST-запрос на раздел сайта /enter/
@@ -31,6 +36,8 @@ def reg(request):
 
         user = User.objects.create_user(username, email, password)
 
-        return JsonResponse({'status': 'success', 'message': 'Регистрация прошла успешно'})
+        login(request, user)
+
+        return JsonResponse({'status' : 'success'})
 
     return render(request, 'reg.html')

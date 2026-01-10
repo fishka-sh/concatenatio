@@ -40,9 +40,10 @@ $('#reg-button').click(
                     regButton.css({
                         'background-color':'#af4c63ff',
                         'color': '#fff',
-                    });
                     
+                    });
+                    window.location.href = '/'; //Переход на главную сайта   
                 },
-        });
-    }
-);
+            });
+        }
+    );
