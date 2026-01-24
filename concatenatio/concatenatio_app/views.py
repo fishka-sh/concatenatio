@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
+from .models import Item
 
 def index(request):
     try:
@@ -13,13 +14,24 @@ def index(request):
 def enter(request):
     # Если придет POST-запрос на раздел сайта /enter/
     if request.method == 'POST':
-        email = request.POST.get('email')
+        username = request.POST.get('email')
         num = request.POST.get('num')
         password = request.POST.get('password')
-    
-        print('Электронная почта: ', email, '\nПароль: ', password, '\nНомер телефона: ', num, sep = '')
 
-    return render(request, 'enter.html')
+        
+
+        user = authenticate(request, username=username, password=password, num=num)
+        if user is not None:
+            login(request, user)
+            JsonResponse({'status' : 'success'})
+        else:
+            JsonResponse({'status' : 'error'})
+        return render(request, 'enter.html')
+    
+def item_template(request, id):
+    item = Item.objects.get(id = id)
+    context = { 'title' : item.item_title }
+    return render(request, 'item.html', context)
 
 def reg(request):
 

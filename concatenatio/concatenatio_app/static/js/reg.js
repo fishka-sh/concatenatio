@@ -38,12 +38,23 @@ $('#reg-button').click(
                     regButton.text('Отправлено');
                     regButton.prop('disabled', true);
                     regButton.css({
-                        'background-color':'#af4c63ff',
+                        'background-color':'rgb(138, 145, 194)',
                         'color': '#fff',
                     
                     });
                     window.location.href = '/'; //Переход на главную сайта   
                 },
-            });
-        }
-    );
+            error:
+                function(data) {
+                    console.log('Success: ', data);
+                    regButton.text('Нет такого пользователя');
+                    regButton.prop('disabled', true);
+                    regButton.css({
+                        'background-color':'rgb(152, 82, 98)',
+                        'color': '#fff',
+                    });
+                }
+                            
+        });
+    }
+);

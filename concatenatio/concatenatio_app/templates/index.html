@@ -60,9 +60,21 @@
         </div>
     </div>
     </div>
+    <button>
+        
+    </button>
     <div class="sg-catalog">
         <h1 class="sg-text-catalog overdozesans">Каталог</h1>
-        <img class="krevet" src={% static 'C:\Users\sofya\Desktop\concatenatio\concatenatio\concatenatio_app\static\img\mins.jpg' %}>
+        <div class="row" id="krevet-container">
+            <div class="col-5">
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+            <div class="col-5">
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+        </div>
+        
+        
 
         {% comment %} <div class="container">
             <div class="row sg-row">
@@ -132,30 +144,24 @@
         </div>        {% endcomment %}
     </div>
     <div class="footer">
-        <div class="container">
-            <div class="row sg-row-footer sg-catalog-text overdozesans">
-                <div class="col-4">
-                    <h3>Главная страница</h3>
-                    <p>Брелоки</p>
-                    <p>Значки</p>
-                    <p>Стикеры</p>
-                    <p>Блокноты</p>
-                    <p>Открытки</p>
-                    <p>Постеры</p>
-                    <p>Наборы</p>
-                    <p>Другое</p>
-                </div>
-                <div class="col-4">
-                    <h3>Что-то не менее важное</h3> 
-                </div>
-                <div class="col-4 gss">
-                    <p class="d-flex">Гражданкина Софья Сергеевна 2025 год</p>
-                </div>
-            </div>
+
+        <div class="sg-catalog-text overdozesans">
+            <h3>Главная страница</h3>
+            <p>Брелоки</p>
+            <p>Значки</p>
+            <p>Стикеры</p>
+            <p>Блокноты</p>
+            <p>Открытки</p>
+            <p>Постеры</p>
+            <p>Наборы</p>
+            <p>Другое</p>
         </div>
+    </div>
+
     <button>
         {% if username %}
-        <a href=''>{{ username }}</a></button>
+        <a href=''>{{ username }}</a>
+    </button>
         {% else %}
         <a href='{% url 'enter' %}'>вход</a></button>
         {% endif %}
