@@ -27,11 +27,26 @@ def enter(request):
         else:
             JsonResponse({'status' : 'error'})
         return render(request, 'enter.html')
-    
+
+
 def item_template(request, id):
     item = Item.objects.get(id = id)
-    context = { 'title' : item.item_title }
+    context = { 'title' : item.item_title,
+                'image' : item.item_image,
+                'price' : item.item_price,
+
+                }
+    
     return render(request, 'item.html', context)
+
+def catalog_view(request):
+    item = Item.objects.all()
+    context = {
+        'item_list' : item,
+    }
+    return render(request, 'catalog.html', context)
+
+
 
 def reg(request):
 

@@ -1,3 +1,36 @@
 .item-title {
+    padding-top: 10px;
+    padding-left: 6rem;
+    color: rgb(44, 20, 20);
+    font-size: 8rem;
+}
+
+.item-price {
+    padding-left: 6rem;
     
+}
+
+.item-image {
+    
+    width: 622px;
+    padding-left: 4rem;
+    padding-top: 2rem;
+}
+
+@font-face {
+  font-family: "overdozesans";
+  src: local("overdozesans"), 
+       url("../fonts/overdoze-sans/overdozesans.otf") format("otf");
+}
+
+.overdozesans {
+    font-family: "overdozesans", sans-serif;
+}
+
+
+@font-face {
+  font-family: 'EternalLent';
+  src: local('EternalLent'),
+	   url("../fonts/EternalLent/EternalLent.ttf") format('ttf'),
+
 }
