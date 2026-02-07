@@ -54,7 +54,6 @@ $('#reg-button').click(
                         'color': '#fff',
                     });
                 }
-                            
         });
     }
 );

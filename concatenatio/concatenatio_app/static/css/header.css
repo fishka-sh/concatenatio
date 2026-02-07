@@ -1,20 +1,21 @@
-@font-face {
-  font-family: "overdozesans";
-  src: local("overdozesans"), 
-       url("../fonts/overdoze-sans/overdozesans.otf") format("otf");
-}
-
-.overdozesans {
-    font-family: "overdozesans", sans-serif;
-}
-
+/* @font-face {
+  font-family: "Tsarevichold";
+  src: local("Tsarevichold"), 
+       url("/../static/fonts/Tsarevich_Old/Tsarevich_old.ttf") format("ttf");
+} */
 
 @font-face {
-  font-family: 'EternalLent';
-  src: local('EternalLent'),
-	   url("../fonts/EternalLent/EternalLent.ttf") format('ttf'),
-
+    font-family: 'Tsarevichold';
+    src: url('../fonts/Tsarevich_Old/Tsarevich_Old.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Для оптимизации загрузки */
 }
+
+.Tsarevichold {
+    font-family: "Tsarevichold", sans-serif;
+}
+
 .sg-text-catalog {
     padding-top: 1rem;
     font-size: 7rem;
@@ -34,11 +35,6 @@
     justify-content: center;
 }
 
-/* .krevet-2 {
-    width: 40%;
-    padding-top: 20px;
-    padding-left: 2rem;
-} */
 
 
 

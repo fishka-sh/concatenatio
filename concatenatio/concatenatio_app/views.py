@@ -34,6 +34,8 @@ def item_template(request, id):
     context = { 'title' : item.item_title,
                 'image' : item.item_image,
                 'price' : item.item_price,
+                'description' : item.item_description,
+                'quantity' : item.item_quantity
 
                 }
     
