@@ -58,13 +58,13 @@
     font-size: 1.5rem;
 }
 
-header {
+ header {
     background-image: url('../img/gl.jpg');
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} 
 
 .interesting {
     background-image: url('../img/popopo.jpg');
@@ -132,4 +132,4 @@ header {
     .sg-magazin {
         padding-top: rem;
     }
-}
+} 

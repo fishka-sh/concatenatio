@@ -7,10 +7,35 @@
     display: grid;
     padding-bottom: 2rem;
 }
-
-.sg-card {
-    /* padding-left: 3rem; */
+@font-face {
+    font-family: 'Tsarevichold';
+    src: url('../fonts/Tsarevich_Old/Tsarevich_Old.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Для оптимизации загрузки */
 }
+
+.Tsarevichold {
+    font-family: "Tsarevichold", sans-serif;
+}
+
+@font-face {
+    font-family: 'CodecProVariable';
+    src: url('../fonts/Codec_Pro_Variable/4_CodecProMEVariable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Для оптимизации загрузки */
+}
+
+.CodecProVariable {
+    font-family: "CodecProVariable";
+}
+
+.price {
+    margin-left: 5px;
+}
+
+
 
 /* .sg-catalog-about {
     width: 100%
@@ -25,7 +50,7 @@
 }
 
 .sg-catalog-text {
-    color: white;
+    color: rgba(255, 255, 255, 0);
 }
 .card {
     /* max-width: 5%; */
@@ -33,13 +58,22 @@
     font-family: arial;
 }
 
-.ne-price {
+.button-price {
     text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.ne-price {
+    margin-left: 10px;
+    text-align: left;
+    font-size: 35px;
 
 }
 
 .price {
-    color: grey;
+    margin-left: 10px;
+    color: rgb(96, 80, 80);
     font-size: 22px;
 }
 
@@ -55,6 +89,3 @@
     font-size: 18px;
 }
 
-.card button:hover {
-    opacity: 0.7;
-}

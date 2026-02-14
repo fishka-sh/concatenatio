@@ -19,7 +19,7 @@
 }
 
 .menu__btn {
-    /* position: fixed; */
+    position: fixed;
     display: flex;
     align-items: center;
     position: fixed;
@@ -71,13 +71,12 @@
     list-style: none;
 
     background-color: #f1ecec;
-    box-shadow: 1px 0px 6px rgba(152, 126, 126, 0.244);
+    box-shadow: 1px 0px 6px rgba(53, 43, 43, 0.244);
 
     transition-duration: .25s;
 }
 
 .menu__item {
-    
     display: block;
     padding: 12px 24px;
 
@@ -87,11 +86,11 @@
     font-size: 20px;
     font-weight: 600;
 
+
     text-decoration: none;
 
     transition-duration: .25s;
 }
-.menu__item:hover {
-    position: fixed;    
+.menu__item:hover {    
     background-color: #e6e5e5d3;
 }
