@@ -45,9 +45,9 @@
             <div class="row sg-row">
                 {% for item in item_list %}
                 <div class="col-3">
-                    <div class="card sg-card">
-                        <img class="sg-img-padding" src={{ item.item_image.url }} >
-                        <h1 class="Tsarevichold ne-price">{{ item.item_title }}</h1>
+                    <div class="card sg-card item-card" onclick="window.location = '/item/{{ item.id }}'">
+                        <img class="sg-img-padding item-img" src={{ item.item_image.url }} id='img-{{ item.id }}' >
+                        <h1 class="Tsarevichold ne-price item-title">{{ item.item_title }}</h1>
                         <p class="price CodecProVariable">{{ item.item_price }} р.</p>
                         <button><a href='/item/{{ item.id }}' class="button-price CodecProVariable"> {{ item.item_price }} Добавить в корзину English</a></button>
                     </div>
@@ -63,6 +63,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         
+    <script srs={% static 'js/img-change.js' %}></script>
 
 
 </body>
