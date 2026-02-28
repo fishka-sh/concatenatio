@@ -1,3 +1,8 @@
+main {
+    position: relative;
+    z-index: 1;
+}
+
 .sg-catalog {
     background-image: url('../img/black.jpg');
 
@@ -42,7 +47,7 @@
 } */
 
 .sg-img-padding {
-    padding-top: 1rem;
+    padding-top: 0rem;
 }
 
 .sg-row {
@@ -52,14 +57,13 @@
 .sg-catalog-text {
     color: rgba(255, 255, 255, 0);
 }
-.card {
+.sg-card {
     /* max-width: 5%; */
     margin: auto;
     font-family: arial;
-    
+    border: none;
+    z-index: 1;
 }
-
-
 
 .button-price {
     text-align: center;
@@ -98,5 +102,6 @@
     text-align: center;
     width: 100%;
     font-size: 18px;
+    border: none;
 }
 
