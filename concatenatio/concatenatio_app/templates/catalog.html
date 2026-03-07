@@ -10,15 +10,17 @@
     <link rel="stylesheet" href={% static 'fonts/Tsarevich_Old/Tsarevich_Old.ttf' %} media="screen">
 {% endblock %}
 {% block content %}
+
     <main class="container" id="item">
-        <div class="row sg-row">
+        <h1 class='sg-h1-catalog Tsarevichold'>Каталог</h1>
+        <div class="row sg-row item-row">
             {% for item in item_list %}
             <div class="col-3">
                 <div class="card sg-card item-card" onclick="window.location='/item/{{ item.id }}'">
                     <img class="sg-img-padding item-img" src={{ item.item_image.url }} id='img-{{ item.id }}' >
                     <h1 class="Tsarevichold ne-price item-title">{{ item.item_title }}</h1>
                     <p class="price CodecProVariable">{{ item.item_price }} р.</p>
-                    <button><a href='/item/{{ item.id }}' class="button-price CodecProVariable"> {{ item.item_price }} Добавить в корзину English</a></button>
+                    <button><a href='/item/{{ item.id }}' class="button-price CodecProVariable">  Добавить в корзину </a></button>
                 </div>
             </div>
             {% endfor %}
@@ -26,5 +28,5 @@
     </main>
 {% endblock %}
 {% block js %}
-    <script srs={% static 'js/img-change.js' %}></script>
+    <script src={% static 'js/img-change.js' %}></script>
 {% endblock %}

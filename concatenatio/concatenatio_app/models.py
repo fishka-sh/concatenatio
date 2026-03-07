@@ -11,6 +11,7 @@ class Item(models.Model):
     
     
     def user_directory_path(instance, filename):
+        # Транслитит название из модели и меняет символы " и пробела на нижнее подчеркивание.
         title = str(translit(value = instance.item_title, language_code = 'ru', reversed = True)).replace('"', '_').replace(' ', '_')
         id = str(instance.id)
         return f'item/{id}_{title}/{filename}'

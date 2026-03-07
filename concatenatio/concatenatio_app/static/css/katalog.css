@@ -98,10 +98,19 @@ main {
 
     padding: 12px;
     color: rgb(221, 194, 194);
-    background-color: #9b3d3d;
+    background-color: #b05b5b;
     text-align: center;
     width: 100%;
     font-size: 18px;
     border: none;
 }
 
+.card {
+    padding-bottom: 2rem;
+
+}
+.sg-h1-catalog {
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 1rem;
+}
