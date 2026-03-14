@@ -46,7 +46,7 @@ def catalog_view(request):
     context = {
         'item_list' : item,
     }
-    return render(request, 'catalog.html', context)
+    return render(request, 'catalog.html', context, status=418)
 
 
 

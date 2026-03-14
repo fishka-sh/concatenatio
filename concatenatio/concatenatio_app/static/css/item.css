@@ -30,19 +30,23 @@
 }
 
 .item-button {
-    margin-top: 14rem;
+    margin-top: 2.5rem;
     margin-left: 6rem;
+    margin-bottom: 3rem;
     width: 12rem;
     height: 3rem;
     border-radius: 10px;
+    border: none;
     background-color: rgba(126, 14, 14, 0.439);
 }
 
 .item-button-heart {
-    margin-top: 14rem;
+    margin-top: 2.5rem;   
     margin-left: 1rem;
+    margin-bottom: 3rem;
     width: 3rem;
     height: 3rem;
+    border: none;
     border-radius: 50%;
     background-color: rgba(126, 14, 14, 0.439);
 }
