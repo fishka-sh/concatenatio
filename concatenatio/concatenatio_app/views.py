@@ -42,7 +42,7 @@ def item_template(request, id):
     return render(request, 'item.html', context)
 
 def catalog_view(request):
-    item = Item.objects.all()
+    item = Item.objects.filter(item_type = 'Откр')
     context = {
         'item_list' : item,
     }

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Магазин мерча{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href={% static 'css/interesting.css' %}>
+    <link rel="stylesheet" href={% static 'css/katalog.css' %}>
+    <link rel="stylesheet" href={% static 'css/main.css' %}>
+    <link rel="stylesheet" href={% static 'css/header.css' %}>
+    <link rel="stylesheet" href={% static 'fonts/Tsarevich_Old/Tsarevich_Old.ttf' %} media="screen">
+{% endblock %}
+{% block content %}
+
+    <div class='container'>
+        <h1 class='sg-h1-catalog Tsarevichold'>Каталог</h1>
+        <div class='row' id="krevet-container">
+            <div class='col-6'>
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+            <div class='col-6'>
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+        </div>
+        <div class='row' id="krevet-container">
+            <div class='col-6'>
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+            <div class='col-6'>
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+        </div>
+        <div class='row' id="krevet-container">
+            <div class='col-6'>
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+            <div class='col-6'>
+                <img class="krevet" src={% static 'img/mins.jpg' %}>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}
+
+{% block js %}
+    <script src={% static 'js/img-change.js' %}></script>
+{% endblock %}

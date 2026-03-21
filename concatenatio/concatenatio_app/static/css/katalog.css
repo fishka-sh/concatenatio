@@ -40,7 +40,9 @@ main {
     margin-left: 5px;
 }
 
-
+.item-img {
+    border-radius: 10px;
+}
 
 /* .sg-catalog-about {
     width: 100%

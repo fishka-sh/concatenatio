@@ -50,7 +50,12 @@
                 <img class="krevet" src={% static 'img/mins.jpg' %}>
             </div>
         </div>
-        <button class='more Tsarevichold'>Больше</button>
+        <button 
+        class='more Tsarevichold'
+        onclick="window.location={% url 'catalog' %}">
+            Больше
+        </button>
+    </label>
     </div> 
     
 {% endblock %}
