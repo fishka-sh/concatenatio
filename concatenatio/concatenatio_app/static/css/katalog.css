@@ -20,6 +20,18 @@ main {
     font-display: swap; /* Для оптимизации загрузки */
 }
 
+
+.nav-row {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    
+}
+
+.nav-col {
+    margin-right: 2.9rem;
+
+}
+
 .Tsarevichold {
     font-family: "Tsarevichold", sans-serif;
 }
@@ -113,6 +125,6 @@ main {
 }
 .sg-h1-catalog {
     text-align: center;
-    font-size: 4rem;
+    font-size: 6rem;
     padding-top: 1rem;
 }

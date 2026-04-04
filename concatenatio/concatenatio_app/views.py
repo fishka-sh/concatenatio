@@ -41,8 +41,11 @@ def item_template(request, id):
     
     return render(request, 'item.html', context)
 
-def catalog_view(request):
-    item = Item.objects.filter(item_type = 'Откр')
+def catalog_view(request, item_type):
+    if item_type == 'all':
+        item = Item.objects.all()
+    else:
+        item = Item.objects.filter(item_type = item_type)
     context = {
         'item_list' : item,
     }

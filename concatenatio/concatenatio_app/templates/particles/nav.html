@@ -6,12 +6,15 @@
 
     <ul class="menu__box">
         <li><a class="menu__item" href={% url 'index' %}>Главная</a></li>
-        <li><a class="menu__item" href={% url 'catalog' %}>Каталог</a></li>
-        <li><a class="menu__item" href="#">О нас</a></li>
-        <li><a class="menu__item" href="#">Брелоки</a></li>
-        <li><a class="menu__item" href="#">Значки</a></li>
-        <li><a class="menu__item" href="#">Стикеры</a></li>
-        <li><a class="menu__item" href="#">Открытки</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'all' %}>Каталог</a></li>
+        <li><a class="menu__item" href='#'>О нас</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'trinket' %}>Брелоки</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'icons' %}>Значки</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'stickers' %}>Стикеры</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'postcards' %}>Открытки</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'notebooks' %}>Блокноты</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'sets' %}>Наборы</a></li>
+        <li><a class="menu__item" href={% url 'catalog' 'other' %}>Прочее</a></li>
         <li><a class="menu__item" href="#">Доставка</a></li>
 
     </ul>

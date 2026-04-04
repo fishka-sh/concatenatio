@@ -10,7 +10,7 @@ urlpatterns = [
     path('enter/', views.enter, name='enter'),
     path('reg/', views.reg, name='reg'),
     path('item/<int:id>', views.item_template, name='item'),
-    path('catalog/', views.catalog_view, name='catalog')
+    path('catalog/<str:item_type>', views.catalog_view, name='catalog')
 
 ]
 
