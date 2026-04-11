@@ -11,20 +11,25 @@
 {% endblock %}
 {% block content %}
 
-    <main class="container" id="item">
-        <h1 class='sg-h1-catalog Tsarevichold'>Каталог</h1>
-        <div class='container nav-catalog'>
-            <div class='row nav-row'>
-                <div class='col-1 nav-col' id='nav-1'>Все</div>
-                <div class='col-1 nav-col'>Брелоки</div>
-                <div class='col-1 nav-col'>Открытки</div>
-                <div class='col-1 nav-col'>Стикеры</div>
-                <div class='col-1 nav-col'>Брелоки</div>
-                <div class='col-1 nav-col'>Значки</div>
-                <div class='col-1 nav-col'>Наборы</div>
-                <div class='col-1 nav-col'>Прочее</div>
+    <div class='nav-catalog'>
+        <h1 class='sg-h1-catalog Tsarevichold'>Каталог</h1> 
+        <div class='row nav-row'>
+            <div class="container">
+                <div class='row d-flex justify-content-center'>
+                    <div class='col-1 nav-col' id='nav-1'>Все</div>
+                    <div class='col-1 nav-col'>Брелоки</div>
+                    <div class='col-1 nav-col'>Открытки</div>
+                    <div class='col-1 nav-col'>Стикеры</div>
+                    <div class='col-1 nav-col'>Брелоки</div>
+                    <div class='col-1 nav-col'>Значки</div>
+                    <div class='col-1 nav-col'>Наборы</div>
+                    <div class='col-1 nav-col'>Прочее</div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <main class="container" id="item">
         <div class="row sg-row item-row">
             {% for item in item_list %}
             <div class="col-3">

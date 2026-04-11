@@ -1,6 +1,6 @@
 .footer {
     background-image: url('../img/gray.jpg');
-    height: 63vh;
+    height: 30vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -11,5 +11,5 @@
 }
 
 .gss {
-    padding-top: 20rem;
+    padding-top: 30vh;
 }
