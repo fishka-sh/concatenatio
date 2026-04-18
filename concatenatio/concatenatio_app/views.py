@@ -6,10 +6,13 @@ from .models import Item
 
 def index(request):
     try:
-        context = { 'username' : request.user.username }
+        item = Item.objects.all()
+        context = { 'username' : request.user.username,
+                    'item_list' : item } 
         return render(request, 'index.html', context)
     except AttributeError as e:
         return render(request, 'index.html')
+print(all)
 
 def enter(request):
     # Если придет POST-запрос на раздел сайта /enter/

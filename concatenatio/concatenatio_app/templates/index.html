@@ -33,21 +33,19 @@
     </div>
 
     <div class="sg-catalog">
-        <h1 class="sg-text-catalog Tsarevichold">Каталог</h1>
-        <div class="row" id="krevet-container">
-            <div class="col-5">
-                <img class="krevet" src={% static 'img/mins.jpg' %}>
-            </div>
-            <div class="col-5">
-                <img class="krevet" src={% static 'img/mins.jpg' %}>
-            </div>
-        </div>
-                <div class="row" id="krevet-container">
-            <div class="col-5">
-                <img class="krevet" src={% static 'img/mins.jpg' %}>
-            </div>
-            <div class="col-5">
-                <img class="krevet" src={% static 'img/mins.jpg' %}>
+        <div class='container'>
+            <h1 class="sg-text-catalog Tsarevichold">Каталог</h1>
+            <div class="row sg-row item-row id="item"">
+                {% for item in item_list %}
+                <div class="col-3">
+                    <div class="card sg-card item-card" onclick="window.location='/item/{{ item.id }}'">
+                        <img class="sg-img-padding item-img" src={{ item.item_image.url }} id='img-{{ item.id }}' >
+                        <h1 class="Tsarevichold ne-price item-title">{{ item.item_title }}</h1>
+                        <p class="price CodecProVariable">{{ item.item_price }} р.</p>
+                        <button><a href='/item/{{ item.id }}' class="button-price CodecProVariable">  Добавить в корзину </a></button>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <button 

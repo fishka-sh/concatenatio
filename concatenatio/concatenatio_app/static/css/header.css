@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(232, 228, 228);
+    color: rgb(74, 71, 71);
 }
 .krevet {
     /* width: 40%;
@@ -50,7 +50,7 @@
 }
 
 .black {
-    color:rgb(57, 58, 58);
+    color:rgb(44, 46, 46);
 }
 
 .EternalLent {
