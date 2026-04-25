@@ -55,5 +55,21 @@
         </button>
     </label>
     </div> 
+    <section class="feedback">
+		<div class="container">
+			<div class="col-sm-12 d-flex justify-content-center">
+				<div class="title">
+					<h2 class="title-main">Полезная рассылка</h2>
+					<p class="title-text">Получайте полезные рецепты на почту раз в неделю</p>
+					<div class="feedback-form">
+                        {% csrf_token %}
+						<input type="email" class="form-control" name="email" id="email" placeholder="Введите адрес почты">
+						<input type="button" id="submit-button" class="form-control btn btn-dark" value="Подписаться">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <script type="text/javascript" src={% static 'js/email.js' %}></script>
     
 {% endblock %}

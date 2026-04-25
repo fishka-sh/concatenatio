@@ -7,10 +7,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('enter/', views.enter, name='enter'),
+    path('auth/', views.enter, name='auth'),
     path('reg/', views.reg, name='reg'),
+    # path('logout/', views.logout_view, name='logout'),
     path('item/<int:id>', views.item_template, name='item'),
-    path('catalog/<str:item_type>', views.catalog_view, name='catalog')
+    path('catalog/<str:item_type>', views.catalog_view, name='catalog'),
+    path('account/', views.account, name='account'),
+    path('email/', views.email, name='email')
 
 ]
 

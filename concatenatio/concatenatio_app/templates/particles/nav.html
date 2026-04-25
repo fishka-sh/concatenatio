@@ -7,7 +7,13 @@
     <ul class="menu_box">
         <li><a class="menu_item" href={% url 'index' %}>Главная</a></li>
         <li><a class="menu_item" href={% url 'catalog' 'all' %}>Каталог</a></li>
-        <li><a class="menu_item" href='#'>О нас</a></li>
+        {% if username %}
+            <li><a class="menu_item" href="#">{{ username }}</a></li>
+            <li><a class="menu_item" href={% url 'account' %}>Профиль</a></li>
+            <li><a class="menu_item" href={% url 'logout' %}>Выйти</a></li>
+        {% else %}
+            <a href={% url 'auth' %} class="nav-link">Вход / Регистрация</a>
+        {% endif %}
         <li><a class="menu_item" href={% url 'catalog' 'trinket' %}>Брелоки</a></li>
         <li><a class="menu_item" href={% url 'catalog' 'icons' %}>Значки</a></li>
         <li><a class="menu_item" href={% url 'catalog' 'stickers' %}>Стикеры</a></li>
@@ -15,7 +21,7 @@
         <li><a class="menu_item" href={% url 'catalog' 'notebooks' %}>Блокноты</a></li>
         <li><a class="menu_item" href={% url 'catalog' 'sets' %}>Наборы</a></li>
         <li><a class="menu_item" href={% url 'catalog' 'other' %}>Прочее</a></li>
-        <li><a class="menu_item" href="#">Доставка</a></li>
+        
 
     </ul>
 </div>

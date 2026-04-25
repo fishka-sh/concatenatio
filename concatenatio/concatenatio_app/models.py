@@ -1,5 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 from transliterate import translit
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    birthdate = models.DateField(null=True, blank=True)
 
 class Item(models.Model):
     item_types = (('trinket', 'Брелоки'),
@@ -35,3 +40,9 @@ class Item(models.Model):
     
     def __str__(self):
         return f'{self.item_title}'
+    
+class EmailDigest(models.Model):
+    email = models.EmailField()
+
+def __str__(self):
+    return f'{self.email}'

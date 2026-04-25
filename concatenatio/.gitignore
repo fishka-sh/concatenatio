@@ -1,3 +1,5 @@
 __pycache__/
 concatenatio_app/__pycache__/
 concatenatio_app/migrations/
+concatenatio/personal_info.py
+concatenatio/__pycache__/
