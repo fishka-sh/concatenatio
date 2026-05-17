@@ -44,8 +44,8 @@ def index(request):
         return render(request, 'index.html')
 print(all)
 
-def enter(request):
-    # Если придет POST-запрос на раздел сайта /enter/
+def auth(request):
+    # Если придет POST-запрос на раздел сайта /auth/
     if request.method == 'POST':
         username = request.POST.get('email')
         num = request.POST.get('num')
@@ -59,7 +59,7 @@ def enter(request):
             JsonResponse({'status' : 'success'})
         else:
             JsonResponse({'status' : 'error'})
-        return render(request, 'enter.html')
+        return render(request, 'auth.html')
 
 
 def item_template(request, id):
