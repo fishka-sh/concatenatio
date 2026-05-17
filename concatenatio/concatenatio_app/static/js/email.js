@@ -7,7 +7,7 @@ $('#submit-button').click(
 
         if(!emailPattern.test(email)) {
             submitButton.val('Неправильно введён адрес почты');
-            submitButton.css('background-color', 'red'); 
+            submitButton.css('background-color', '#ca6666'); 
             return;          
         }
 
@@ -21,13 +21,13 @@ $('#submit-button').click(
             },
             success: function(data) {
                 submitButton.val(data.message);
-                submitButton.css('background-color', 'green');
+                submitButton.css('background-color', '#66ca6d');
                 submitButton.prop('disabled', true);
             },
             error: function(xhr) {
                 if(xhr.responseJSON) {
                     submitButton.val(xhr.responseJSON.message);
-                    submitButton.css('background-color', 'red');
+                    submitButton.css('background-color', '#ca6666');
                 }
             }
         })

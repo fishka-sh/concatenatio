@@ -8,6 +8,7 @@
     <link rel="stylesheet" href={% static 'css/interesting.css' %}>
     <link rel="stylesheet" href={% static 'css/katalog.css' %}>
     <link rel="stylesheet" href={% static 'css/main.css' %}>
+    <link rel="stylesheet" href={% static 'css/feedback.css' %}>
     <link rel="stylesheet" href={% static 'fonts/Tsarevich_Old/Tsarevich_Old.ttf' %} media="screen">
 {% endblock %}
 
@@ -55,6 +56,8 @@
         </button>
     </label>
     </div> 
+
+    {% csrf_token %}
     <section class="feedback">
 		<div class="container">
 			<div class="col-sm-12 d-flex justify-content-center">
@@ -70,6 +73,8 @@
 			</div>
 		</div>
 	</section>
-    <script type="text/javascript" src={% static 'js/email.js' %}></script>
-    
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src={% static 'js/email.js' %}></script>
 {% endblock %}

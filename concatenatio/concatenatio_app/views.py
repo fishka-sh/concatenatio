@@ -44,14 +44,12 @@ def index(request):
         return render(request, 'index.html')
 print(all)
 
-def auth(request):
+def enter(request):
     # Если придет POST-запрос на раздел сайта /auth/
     if request.method == 'POST':
         username = request.POST.get('email')
         num = request.POST.get('num')
         password = request.POST.get('password')
-
-        
 
         user = authenticate(request, username=username, password=password, num=num)
         if user is not None:
@@ -59,7 +57,8 @@ def auth(request):
             JsonResponse({'status' : 'success'})
         else:
             JsonResponse({'status' : 'error'})
-        return render(request, 'auth.html')
+        return render(request, 'enter.html')
+    return render(request, 'enter.html')
 
 
 def item_template(request, id):
@@ -133,7 +132,7 @@ def email(request):
 
         send_mail(
             "Полезная рассылка",
-            "Вы будете получать полезную рассылку о полезных продуктах.",
+            "Вы будете получать новости о новинках и скидках в магазине.",
             'sofyagrajd@yandex.ru',
             [email],
             fail_silently=False,
@@ -144,3 +143,7 @@ def email(request):
 
         return JsonResponse({'status': 'success', 'message' : 'Отправлено'})
     return JsonResponse({'status' : 'error', 'message' : 'Метод не разрешён. Только POST.'}, status=405)
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')
