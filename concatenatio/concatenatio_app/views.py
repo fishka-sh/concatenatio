@@ -1,38 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import UserProfile, EmailDigest, Item
+from .models import UserProfile, EmailDigest, Item, EmailCode
 from django.core.mail import send_mail
 from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.conf import settings
 import random
-
-def index(request):
-    try:
-        context = { 'username' : request.user.username }
-        return render(request, 'index.html', context)
-    except AttributeError:
-        return render(request, 'index.html')
-
-def auth(request):
-    if request.method == 'POST':
-        username = request.POST.get('email')
-        password = request.POST.get('password')
-        # \n (терминальный n) - это перенос строки
-        print('Логин: ', username, '\n', 'Пароль: ', password, sep='')
-
-        # Авторизация: здесь ищется зарегистрированный пользователь
-        user = authenticate(request, username=username, password=password)
-        if user is not None: # Если пользователь есть
-            print('Нашелся пользователь ', user.username)
-            login(request, user)
-            JsonResponse({'status' : 'success', 'message' : 'Пользователь авторизован'})
-        else:
-            JsonResponse({'status' : 'error', 'message' : 'Пользователь не найден'})
-    return render(request, 'auth.html')
+import threading
 
 def index(request):
     try:
@@ -42,7 +19,6 @@ def index(request):
         return render(request, 'index.html', context)
     except AttributeError as e:
         return render(request, 'index.html')
-print(all)
 
 def enter(request):
     # Если придет POST-запрос на раздел сайта /auth/
@@ -54,22 +30,23 @@ def enter(request):
         user = authenticate(request, username=username, password=password, num=num)
         if user is not None:
             login(request, user)
-            JsonResponse({'status' : 'success'})
+            JsonResponse({'status' : 'success', 'message' : 'Пользователь авторизован'})
         else:
-            JsonResponse({'status' : 'error'})
+            JsonResponse({'status' : 'error', 'message' : 'Пользователь не найден'})
         return render(request, 'enter.html')
     return render(request, 'enter.html')
 
 
 def item_template(request, id):
     item = Item.objects.get(id = id)
-    context = { 'title' : item.item_title,
-                'image' : item.item_image,
-                'price' : item.item_price,
-                'description' : item.item_description,
-                'quantity' : item.item_quantity
-
-                }
+    context = { 
+        'title' : item.item_title,
+        'image' : item.item_image,
+        'price' : item.item_price,
+        'description' : item.item_description,
+        'quantity' : item.item_quantity,
+        'username' : request.user.username
+    }
     
     return render(request, 'item.html', context)
 
@@ -80,10 +57,9 @@ def catalog_view(request, item_type):
         item = Item.objects.filter(item_type = item_type)
     context = {
         'item_list' : item,
+        'username' : request.user.username
     }
     return render(request, 'catalog.html', context, status=418)
-
-
 
 def account(request):
     print(request.user.id)
@@ -97,28 +73,64 @@ def account(request):
         return render(request, 'account.html', context)
     except AttributeError:
         return HttpResponse('<h1>401 Unauthorized</h1>', status=401)
+
+def send_email_code_async(email, code):
+    send_mail(
+        'Продукты 24/7: код подтверждения',
+        f'Ваш код подтверждения: {code}',
+        settings.EMAIL_HOST_USER,
+        [email],
+        fail_silently=False,
+    )
     
-
 def reg(request):
-
     if request.method == 'POST':
         email = request.POST.get('email')
         num = request.POST.get('num')
-        name = request.POST.get('name')
-        name2 = request.POST.get('name2')
+        name = request.POST.get('firstName')
+        name2 = request.POST.get('lastName')
         tg = request.POST.get('tg')
         password = request.POST.get('password')
-        username = email
 
         print('Электронная почта: ', email, '\nПароль: ', password, '\nНомер телефона: ', num, 'Имя: ', name, 'Фамилия: ', name2, 'Тг: ', tg, sep = '')
 
-        user = User.objects.create_user(username, email, password)
+        user = User.objects.create_user(
+            username = email, 
+            email = email, 
+            password = password,
+            first_name = name,
+            last_name = name2,
+            is_active = False
+        )
 
-        login(request, user)
+        UserProfile.objects.create(
+            user = user, 
+            tg = tg,
+            num = num
+        )
 
-        return JsonResponse({'status' : 'success'})
+        code = str(random.randint(100000, 999999))
 
-    return render(request, 'reg.html')
+        EmailCode.objects.create(
+            user = user,
+            code = code
+        )
+
+        threading.Thread(
+            target=send_email_code_async,
+            args=(email, code)
+        ).start()        
+
+        request.session['pending_user_id'] = user.id
+        return JsonResponse({
+            'status': 'success',
+            'redirect': '/confirm/'
+        })
+    
+    if request.user.is_authenticated:
+        return redirect('index')
+    else:
+        return render(request, 'reg.html')
 
 def email(request):
     if request.method == 'POST' and request.POST.get('email'):
@@ -133,7 +145,7 @@ def email(request):
         send_mail(
             "Полезная рассылка",
             "Вы будете получать новости о новинках и скидках в магазине.",
-            'sofyagrajd@yandex.ru',
+            settings.EMAIL_HOST_USER,
             [email],
             fail_silently=False,
         )
@@ -147,3 +159,27 @@ def email(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+def confirm(request):
+    if request.method == 'POST':
+        code = request.POST.get('email-code')
+        user_id = request.session.get('pending_user_id')
+
+        if user_id:
+            try:
+                user = User.objects.get(id = user_id)
+                email_code = EmailCode.objects.get(user = user, code = code)
+
+                if email_code.code == code:
+                    if not email_code.is_expired():
+                        user.is_active = True
+                        user.save()
+                        email_code.delete()
+                        login(request, user)
+                        return JsonResponse({'status' : 'success', 'redirect' : '/account/'})
+                    else:
+                        return JsonResponse({'status': 'error', 'message': 'Срок действия кода истек'}, status=400)
+            except ObjectDoesNotExist:
+                return JsonResponse({'status': 'error', 'message': 'Неверный код'}, status=400)
+
+    return render(request, 'confirm.html')

@@ -13,8 +13,8 @@ urlpatterns = [
     path('item/<int:id>', views.item_template, name='item'),
     path('catalog/<str:item_type>', views.catalog_view, name='catalog'),
     path('account/', views.account, name='account'),
-    path('email/', views.email, name='email')
-
+    path('email/', views.email, name='email'),
+    path('confirm/', views.confirm, name='confirm'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

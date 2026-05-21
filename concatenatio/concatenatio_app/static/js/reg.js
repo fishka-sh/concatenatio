@@ -10,6 +10,14 @@ $('#reg-button').click(
         let regButton = $('#reg-button');
 
         const CSRF = $('[name=csrfmiddlewaretoken]').val();
+
+        regButton.prop('disabled', true);
+        regButton.prop('hidden', true);
+        $('.reg').append(`
+            <div id="reg-spinner" class="spinner-border mt-2" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `)
         
         if(!email) {
             alert('Введите адрес электронной почты!');
@@ -35,14 +43,16 @@ $('#reg-button').click(
             data: userData,
 
             success: function(data) {
-                regButton.text('Успешно');
-                regButton.prop('disabled', true);
-                regButton.css({
-                    'background-color': '#4CAF50',
-                    'color': '#fff',
-                });
-                window.location.href = '/'; //Переход на главную сайта
-                },
+                window.location.href = data.redirect;
+            },
+
+            error: function(xhr) {
+                if(xhr.responseJSON) {
+                    $('#reg-spinner').remove();
+                    regButton.val(xhr.responseJSON.message);
+                    regButton.css('background-color', 'red');
+                }
+            }   
         });
     }
 );
