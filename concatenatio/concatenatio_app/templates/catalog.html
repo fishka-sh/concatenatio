@@ -32,7 +32,7 @@
     <main class="container" id="item">
         <div class="row sg-row item-row">
             {% for item in item_list %}
-            <div class="col-3">
+            <div class="col-3 sg-col">
                 <div class="card sg-card item-card" onclick="window.location='/item/{{ item.id }}'">
                     <img class="sg-img-padding item-img" src={{ item.item_image.url }} id='img-{{ item.id }}' >
                     <h1 class="Tsarevichold ne-price item-title">{{ item.item_title }}</h1>

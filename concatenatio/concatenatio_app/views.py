@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.http import JsonResponse, HttpResponse
@@ -183,3 +183,73 @@ def confirm(request):
                 return JsonResponse({'status': 'error', 'message': 'Неверный код'}, status=400)
 
     return render(request, 'confirm.html')
+
+def basket_add(request, item_id):
+    if request.user.is_authenticated:
+        item = get_object_or_404(Item, id=item_id)
+
+        qty = int(request.GET.get('qty', 1))
+
+        basket = request.session.get('basket', {})
+        item_id_str = str(item.id)
+
+        basket[item_id_str] = basket.get(item_id_str, 0) + qty
+
+        request.session['basket'] = basket
+        request.session.modified = True
+
+        return redirect('basket_detail')
+    else:
+        return redirect('auth')
+
+def basket_detail(request):
+    if request.user.is_authenticated:
+        basket = request.session.get('basket', {})
+
+        items = Item.objects.filter(id__in=basket.keys())
+
+        basket_items = []
+
+        for item in items:
+            quantity = basket[str(item.id)]
+            total_price = item.price * quantity
+
+            basket_items.append({
+                'item': item,
+                'quantity': quantity,
+                'total_price': total_price
+            })
+
+        context = {
+            'basket_items': basket_items,
+            'username' : request.user.username
+        }
+
+        return render(request, 'basket.html', context)
+    else:
+        return redirect('auth')
+
+def basket_remove(request, item_id):
+    if request.user.is_authenticated:
+        basket = request.session.get('basket', {})
+
+        item_id_str = str(item_id)
+
+        if item_id_str in basket:
+            del basket[item_id_str]
+
+        request.session['basket'] = basket
+        request.session.modified = True
+
+        return redirect('basket_detail')
+    else:
+        return redirect('auth')
+
+def basket_clear(request):
+    if request.user.is_authenticated:
+        request.session['basket'] = {}
+        request.session.modified = True
+
+        return redirect('basket_detail')
+    else:
+        return redirect('auth')

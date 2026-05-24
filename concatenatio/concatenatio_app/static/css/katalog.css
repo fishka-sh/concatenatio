@@ -25,11 +25,17 @@ main {
     padding-top: 2rem; */
     border: 1px solid black;
     padding: 2rem 0rem 2rem 0rem;
+    width: 100%;
 }
 
 .nav-col {
     margin-right: 2.9rem;
+    text-align: center;
+}
 
+.nav-col:hover {
+    background-color: black;
+    color: white;
 }
 
 #nav-1 {
@@ -93,7 +99,6 @@ main {
     margin-left: 10px;
     text-align: left;
     font-size: 35px;
-
 }
 
 .item-card:hover {
@@ -131,4 +136,15 @@ main {
     text-align: center;
     font-size: 6rem;
     padding-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .sg-col {
+        width: 50%;
+    }
+
+    .ne-price {
+        line-height: 2.625rem;
+        height: 5.250rem;
+    }
 }

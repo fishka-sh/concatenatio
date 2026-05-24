@@ -19,7 +19,7 @@
                 <main class='item-price'>Цена: {{ price }}₽</main>
                 <main class='item-description'>Описание: {{ description }}</main>
                 <main class='item-quantity'>В наличии: {{ quantity }} штук</main>
-                <button class='item-button'>В корзину</button><button class='item-button-heart'>.</button>
+                <a href="{% url 'basket_add' item.id %}?qty=1"><button class='item-button'>В корзину</button></a><button class='item-button-heart'>.</button>
             </div>
         </div>
 {% endblock %}
