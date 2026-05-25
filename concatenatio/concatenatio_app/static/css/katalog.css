@@ -148,3 +148,8 @@ main {
         height: 5.250rem;
     }
 }
+
+.link-like-text {
+    text-decoration: inherit;
+    color: inherit;
+}
