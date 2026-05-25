@@ -6,7 +6,6 @@ $('#confirm-button').click(
         let confirmButton = $('#confirm-button');
 
         confirmButton.prop('disabled', true);
-        confirmButton.prop('hidden', true);
         $('.confirm').append(`
             <div id="confirm-spinner" class="spinner-border mt-2" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -33,8 +32,13 @@ $('#confirm-button').click(
             error: function(xhr) {
                 if(xhr.responseJSON) {
                     $('#confirm-spinner').remove();
-                    confirmButton.val(xhr.responseJSON.message);
-                    confirmButton.css('background-color', 'red');
+                    $('#error-message').remove();
+                    $('.confirm').append(`
+                        <div id="error-message" class="alert alert-danger" role="alert">
+                            ${xhr.responseJSON.message}
+                        </div>
+                    `);
+                    confirmButton.prop('disabled', false);
                 }
             }   
         });
