@@ -39,7 +39,8 @@ def enter(request):
 
 def item_template(request, id):
     item = Item.objects.get(id = id)
-    context = { 
+    context = {
+        'id' : id,
         'title' : item.item_title,
         'image' : item.item_image,
         'price' : item.item_price,
@@ -185,49 +186,43 @@ def confirm(request):
     return render(request, 'confirm.html')
 
 def basket_add(request, item_id):
-    if request.user.is_authenticated:
-        item = get_object_or_404(Item, id=item_id)
+    item = get_object_or_404(Item, id=item_id)
 
-        qty = int(request.GET.get('qty', 1))
+    qty = int(request.GET.get('qty', 1))
 
-        basket = request.session.get('basket', {})
-        item_id_str = str(item.id)
+    basket = request.session.get('basket', {})
+    item_id_str = str(item.id)
 
-        basket[item_id_str] = basket.get(item_id_str, 0) + qty
+    basket[item_id_str] = basket.get(item_id_str, 0) + qty
 
-        request.session['basket'] = basket
-        request.session.modified = True
+    request.session['basket'] = basket
+    request.session.modified = True
 
-        return redirect('basket_detail')
-    else:
-        return redirect('auth')
+    return redirect('basket_detail')
 
 def basket_detail(request):
-    if request.user.is_authenticated:
-        basket = request.session.get('basket', {})
+    basket = request.session.get('basket', {})
 
-        items = Item.objects.filter(id__in=basket.keys())
+    items = Item.objects.filter(id__in=basket.keys())
 
-        basket_items = []
+    basket_items = []
 
-        for item in items:
-            quantity = basket[str(item.id)]
-            total_price = item.price * quantity
+    for item in items:
+        quantity = basket[str(item.id)]
+        total_price = item.item_price * quantity
 
-            basket_items.append({
-                'item': item,
-                'quantity': quantity,
-                'total_price': total_price
-            })
+        basket_items.append({
+            'item': item,
+            'quantity': quantity,
+            'total_price': total_price
+        })
 
-        context = {
-            'basket_items': basket_items,
-            'username' : request.user.username
-        }
+    context = {
+        'basket_items': basket_items,
+        'username' : request.user.username
+    }
 
-        return render(request, 'basket.html', context)
-    else:
-        return redirect('auth')
+    return render(request, 'basket.html', context)
 
 def basket_remove(request, item_id):
     if request.user.is_authenticated:

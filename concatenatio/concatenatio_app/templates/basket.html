@@ -19,31 +19,27 @@
     {% if basket_items %}
         <div class="row g-4">
             <div class="col-lg-8">
-                {% for item in basket_items %}
+                {% for basket_item in basket_items %}
                     <div class="basket-item card mb-3">
                         <div class="row g-0 align-items-center">
 
                             <div class="col-md-3">
-                                <img src="{{ item.good.image.url }}"
+                                <img src="{{ basket_item.item.image.url }}"
                                      class="img-fluid rounded-start basket-img"
-                                     alt="{{ item.good.title }}">
+                                     alt="{{ basket_item.item.title }}">
                             </div>
 
                             <div class="col-md-6">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ item.good.title }}</h5>
-                                    <p class="card-text mb-1">Цена: {{ item.good.price }} ₽</p>
-                                    {% if item.good.food_type == 'greenery' %}
-                                    <p class="card-text mb-1">Количество: {{ item.quantity }}00 г</p>
-                                    {% else %}
-                                    <p class="card-text mb-1">Количество: {{ item.quantity }} кг</p>
-                                    {% endif %}
-                                    <p class="card-text fw-bold">Итого: {{ item.total_price }} ₽</p>
+                                    <h5 class="card-title">{{ basket_item.item.title }}</h5>
+                                    <p class="card-text mb-1">Цена: {{ basket_item.item.price }} ₽</p>
+                                    <p class="card-text mb-1">Количество: {{ basket_item.quantity }}00 г</p>
+                                    <p class="card-text fw-bold">Итого: {{ basket_item.total_price }} ₽</p>
                                 </div>
                             </div>
 
                             <div class="col-md-3 text-md-end p-3">
-                                <a href="{% url 'basket_remove' item.good.id %}"
+                                <a href="{% url 'basket_remove' basket_item.item.id %}"
                                    class="btn btn-outline-danger btn-sm">
                                     Удалить
                                 </a>
