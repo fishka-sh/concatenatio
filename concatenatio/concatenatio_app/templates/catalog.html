@@ -16,14 +16,14 @@
         <div class='row nav-row'>
             <div class="container">
                 <div class='row d-flex justify-content-center'>
-                    <div class='col-1 nav-col' id='nav-1'>Все</div>
-                    <div class='col-1 nav-col'>Брелоки</div>
-                    <div class='col-1 nav-col'>Открытки</div>
-                    <div class='col-1 nav-col'>Стикеры</div>
-                    <div class='col-1 nav-col'>Брелоки</div>
-                    <div class='col-1 nav-col'>Значки</div>
-                    <div class='col-1 nav-col'>Наборы</div>
-                    <div class='col-1 nav-col'>Прочее</div>
+                    <a class='col-1 nav-col link-like-text' id='nav-1' href={% url 'catalog' 'all' %}>Все</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'trinket' %}>Брелоки</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'postcards' %}>Открытки</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'stickers' %}>Стикеры</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'notebooks' %}>Блокноты</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'icons' %}>Значки</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'sets' %}>Наборы</a>
+                    <a class='col-1 nav-col link-like-text' href={% url 'catalog' 'other' %}>Прочее</a>
                 </div>
             </div>
         </div>
