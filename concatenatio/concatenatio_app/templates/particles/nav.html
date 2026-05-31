@@ -13,8 +13,7 @@
         <li><a class="menu_item" href={% url 'catalog' 'postcards' %}>Открытки</a></li>
         <li><a class="menu_item" href={% url 'catalog' 'sets' %}>Наборы</a></li>
         {% if username %}
-            <li><a class="menu_item" href={% url 'catalog' 'other' %}>{{ username }}</a></li>
-            <li><a class="menu_item" href={% url 'account' %}>Профиль</a></li>
+            <li><a class="menu_item" href={% url 'account' %}>{{ username }}</a></li>
             <li><a class="menu_item" href{% url 'logout' %}>Выйти</a></li>
         {% else %}
             <li><a class="menu_item" href={% url 'auth' %}>Войти / Регистрация</a></li>
